@@ -1,0 +1,22 @@
+{
+  "name": "api-for-swagger",
+  "version": "2.0.0",
+  "description": "Creating two endpoints and then creating their documentation on Swagger UI",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git remote add origin https://github.com/hamzasaiff195/SwaggerUI.git"
+  },
+  "author": "Hamza Ali",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6"
+  }
+}
