@@ -3,8 +3,10 @@ const app = express();
 const morgan = require('morgan');
 const swaggerJsdocs = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
-
+const Customer = require('./models/customerModel');
 app.use(morgan('dev'));
+
+app.use(express.json());
 
 // Extended: https://swagger.io/specification/#infoObject
 const swaggerOptions = {
@@ -32,6 +34,34 @@ const swaggerDocs = swaggerJsdocs(swaggerOptions);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 // Routes
+
+/**
+ * @swagger
+ * /customers:
+ *  post:
+ *   summary: Create new customer
+ *   tags: [Customers]
+ *   responses:
+ *    201:
+ *     description: A successufll response
+ *     content:
+ *      application/json:
+ *       schema:
+ *        type: array
+ *        items:
+ *         $ref: '#components/schema/customers'
+ */
+
+app.post('/customers', async (req, res) => {
+  const customer = await Customer.create(req.body);
+
+  res.status(201).json({
+    status: 'success',
+    data: {
+      data: customer,
+    },
+  });
+});
 
 /**
  * @swagger
