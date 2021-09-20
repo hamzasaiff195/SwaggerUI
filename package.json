@@ -9,7 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git remote add origin https://github.com/hamzasaiff195/SwaggerUI.git"
+    "url": "git remote add origin https://github.com/hamzasaiff195/SwaggerUI.git",
+    "publishConfig":{"registry":"https://magnitdev.jfrog.io/artifactory/api/npm/dev-npm-local/"}
   },
   "author": "Hamza Ali",
   "license": "ISC",
